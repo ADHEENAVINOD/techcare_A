@@ -1,0 +1,17 @@
+# Database Data directory
+db_data/
+
+# Temporary / Null files
+nil
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE configs
+.idea/
+.vscode/
+.gradle/
+build/
+local.properties
+.DS_Store

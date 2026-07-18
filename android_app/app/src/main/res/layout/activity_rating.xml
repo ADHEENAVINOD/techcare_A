@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="@color/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate Company"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:id="@+id/tv_rating_company_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company: Loading..."
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="40dp"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How would you rate their service?"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Android Rating Bar -->
+    <RatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:rating="5"
+        android:layout_marginBottom="40dp"
+        android:progressTint="@color/accent"
+        android:progressBackgroundTint="@color/text_muted"/>
+
+    <Button
+        android:id="@+id/btn_rating_submit"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="SUBMIT RATING"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary"/>
+
+</LinearLayout>

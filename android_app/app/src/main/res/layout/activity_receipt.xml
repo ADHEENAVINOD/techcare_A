@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/white">
+
+    <!-- Header Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SERVICE INVOICE RECEIPT"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/primary"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Service Details -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Technician Details"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#f5f6f8"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/tv_receipt_tech_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: Ramesh Kumar"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_receipt_tech_specialties"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Specialties: Refrigerator, Washing Machine"
+            android:textSize="14sp"
+            android:textColor="@color/text_color"
+            android:alpha="0.8"/>
+    </LinearLayout>
+
+    <!-- Itemized Billing Breakdown -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Billing Breakdown"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Dynamic Cost List Container -->
+    <LinearLayout
+        android:id="@+id/layout_receipt_items"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Row: Base Rate -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Base Visiting Rate"
+                android:textSize="14sp"
+                android:textColor="@color/text_color"/>
+            <TextView
+                android:id="@+id/tv_receipt_base_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="₹300"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_color"/>
+        </RelativeLayout>
+
+        <!-- Dynamic parts list gets injected here in code -->
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Total Cost -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Amount (Genuine Sourced Guarantee)"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_color"/>
+        <TextView
+            android:id="@+id/tv_receipt_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="₹300"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/success"/>
+    </RelativeLayout>
+
+    <!-- Close Button -->
+    <Button
+        android:id="@+id/btn_receipt_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close Receipt"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+</LinearLayout>

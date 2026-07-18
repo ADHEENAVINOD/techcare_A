@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:margin="8dp"
+    android:background="@drawable/edit_text_bg"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/tv_tech_job_customer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_tech_job_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address: House, Place | Phone: 9876543210"
+        android:textSize="13sp"
+        android:textColor="@color/text_muted"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_tech_job_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product: Device Brand Name"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_tech_job_complaint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Issue description details here..."
+        android:textSize="14sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Status update dropdown/spinner or buttons -->
+        <Spinner
+            android:id="@+id/spinner_job_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"/>
+
+        <Button
+            android:id="@+id/btn_job_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/success"
+            style="@style/Widget.MaterialComponents.Button.MinWidth"
+            android:layout_marginRight="8dp"/>
+
+        <Button
+            android:id="@+id/btn_job_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat Client"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/primary"
+            style="@style/Widget.MaterialComponents.Button.MinWidth"
+            android:layout_marginRight="8dp"/>
+
+        <Button
+            android:id="@+id/btn_job_parts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔧 Request Part"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/accent"
+            style="@style/Widget.MaterialComponents.Button.MinWidth"/>
+
+    </LinearLayout>
+
+    <!-- Bid / Offer Button (Visible only in Find Jobs tab) -->
+    <Button
+        android:id="@+id/btn_job_bid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Offer to Fix Device"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/accent"
+        android:visibility="gone"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+    <!-- Confirm / Close Buttons (Visible in My Tasks tab when status is 'Accepted') -->
+    <LinearLayout
+        android:id="@+id/layout_tech_job_confirmations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btn_job_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Confirm &amp; Start"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/success"
+            android:layout_marginRight="4dp"
+            style="@style/Widget.MaterialComponents.Button"/>
+
+        <Button
+            android:id="@+id/btn_job_decline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Decline / Close"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/danger"
+            android:layout_marginLeft="4dp"
+            style="@style/Widget.MaterialComponents.Button"/>
+    </LinearLayout>
+
+</LinearLayout>

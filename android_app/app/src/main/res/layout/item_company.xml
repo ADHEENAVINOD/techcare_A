@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:margin="8dp"
+    android:background="@drawable/edit_text_bg"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/tv_item_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_item_company_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email / Phone / Place"
+        android:textSize="14sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Average Rating: "
+            android:textSize="14sp"
+            android:textColor="@color/text_muted"/>
+
+        <TextView
+            android:id="@+id/tv_item_company_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="★ 4.5 / 5"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/accent"/>
+    </LinearLayout>
+
+</LinearLayout>

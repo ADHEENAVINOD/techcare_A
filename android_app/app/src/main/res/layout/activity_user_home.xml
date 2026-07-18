@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Custom App Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tv_user_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome!"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Client Dashboard"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:alpha="0.8"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_vertical">
+
+        <!-- Browse Companies Card -->
+        <Button
+            android:id="@+id/btn_user_companies"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="Browse Technical Companies"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:backgroundTint="@color/primary"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- My Complaints & Estimates Card -->
+        <Button
+            android:id="@+id/btn_user_complaints"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="My Service Tasks & Estimates"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:backgroundTint="@color/primary_light"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Change Password Card -->
+        <Button
+            android:id="@+id/btn_user_password"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Change Password"
+            android:textColor="@color/text_color"
+            android:backgroundTint="@color/border_color"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Logout Button -->
+        <Button
+            android:id="@+id/btn_user_logout"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/danger"/>
+
+    </LinearLayout>
+
+</LinearLayout>

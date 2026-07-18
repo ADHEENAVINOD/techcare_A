@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:margin="6dp"
+    android:background="@drawable/edit_text_bg"
+    android:elevation="1dp">
+
+    <!-- Row: Name and Rate -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/tv_offer_tech_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ramesh Kumar"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"/>
+
+        <TextView
+            android:id="@+id/tv_offer_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="₹250 Visit Fee"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/success"/>
+    </RelativeLayout>
+
+    <!-- Specialties -->
+    <TextView
+        android:id="@+id/tv_offer_specialties"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Specialties: Mixer, Induction, Kitchen Appliance"
+        android:textSize="13sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Rating -->
+    <TextView
+        android:id="@+id/tv_offer_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="★ 4.5 / 5 Rating"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/accent"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Last Review Preview -->
+    <TextView
+        android:id="@+id/tv_offer_last_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last Review: \"Very professional and timely repair.\""
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:textColor="@color/text_muted"
+        android:layout_marginBottom="12dp"
+        android:background="#f5f6f8"
+        android:padding="8dp"/>
+
+    <!-- Accept Button -->
+    <Button
+        android:id="@+id/btn_offer_accept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accept Offer &amp; Connect"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+</LinearLayout>

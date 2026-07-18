@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Header bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Technical Companies"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Search Input -->
+    <EditText
+        android:id="@+id/et_company_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search company by name..."
+        android:padding="12dp"
+        android:background="@drawable/edit_text_bg"
+        android:layout_margin="16dp"
+        android:inputType="text"/>
+
+    <!-- Companies list -->
+    <ListView
+        android:id="@+id/lv_companies"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/border_color"
+        android:dividerHeight="1dp"
+        android:padding="8dp"/>
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TechCare</string>
+    <string name="title_login">Sign In</string>
+    <string name="title_register">Register Now!</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_companies">Companies</string>
+    <string name="title_products">Products</string>
+    <string name="title_complaint">Submit Complaint</string>
+    <string name="title_estimates">Estimates</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_feedback">Feedback</string>
+    <string name="title_rating">Rate Service</string>
+</resources>

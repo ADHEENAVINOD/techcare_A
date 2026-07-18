@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - TECH CARE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="{{ url_for('admin_dashboard') }}" class="navbar-brand">TECHCARE</a>
+        <ul class="navbar-menu">
+            <li><a href="{{ url_for('admin_dashboard', tab='home') }}" class="navbar-item {% if tab == 'home' %}active{% endif %}">Home</a></li>
+            <li><a href="{{ url_for('admin_dashboard', tab='companies') }}" class="navbar-item {% if tab == 'companies' %}active{% endif %}">Companies</a></li>
+            <li><a href="{{ url_for('admin_dashboard', tab='technicians') }}" class="navbar-item {% if tab == 'technicians' %}active{% endif %}">Service Agent</a></li>
+            <li><a href="{{ url_for('admin_dashboard', tab='users') }}" class="navbar-item {% if tab == 'users' %}active{% endif %}">Users</a></li>
+            <li><a href="{{ url_for('admin_dashboard', tab='password') }}" class="navbar-item {% if tab == 'password' %}active{% endif %}">Change Password</a></li>
+            <li><a href="{{ url_for('logout') }}" class="navbar-item logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Success/Error Messages -->
+        {% with messages = get_flashed_messages(category_filter=["success"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% with messages = get_flashed_messages(category_filter=["error"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- TAB: HOME -->
+        {% if tab == 'home' %}
+        <div class="hero">
+            <h1>Welcome to Techcare Admin Portal</h1>
+            <p>Manage companies, technicians, and monitor registered users in the system.</p>
+        </div>
+        <div class="grid">
+            <div class="card" style="text-align: center;">
+                <h3 class="card-title">Companies</h3>
+                <p style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">{{ stats.companies_count }}</p>
+                <a href="{{ url_for('admin_dashboard', tab='companies') }}" class="btn btn-secondary" style="margin-top: 1rem;">View Details</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3 class="card-title">Service Agents</h3>
+                <p style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">{{ stats.agents_count }}</p>
+                <a href="{{ url_for('admin_dashboard', tab='technicians') }}" class="btn btn-secondary" style="margin-top: 1rem;">View Details</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3 class="card-title">Registered Users</h3>
+                <p style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">{{ stats.users_count }}</p>
+                <a href="{{ url_for('admin_dashboard', tab='users') }}" class="btn btn-secondary" style="margin-top: 1rem;">View Details</a>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- TAB: COMPANIES -->
+        {% if tab == 'companies' %}
+        <div class="table-container">
+            <h3 style="padding: 1.5rem; border-bottom: 1px solid var(--border-color); color: var(--primary-color);">Registration Applications & Approved Companies</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>License</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for company in companies %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td><strong>{{ company.name }}</strong></td>
+                        <td>
+                            Place: {{ company.place }}<br>
+                            District: {{ company.district }}<br>
+                            Pin: {{ company.pin_code }}
+                        </td>
+                        <td>{{ company.email }}</td>
+                        <td>{{ company.phone }}</td>
+                        <td>{{ company.license }}</td>
+                        <td>
+                            {% if company.status == 'Approved' %}
+                                <span class="badge badge-success">Approved</span>
+                            {% else %}
+                                <span class="badge badge-warning">Pending</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if company.status == 'Pending' %}
+                                <a href="{{ url_for('admin_approve_company', co_id=company.co_id) }}" class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Approve</a>
+                            {% else %}
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">No action</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="8" style="text-align: center; color: var(--text-muted);">No companies registered yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        <!-- TAB: TECHNICIANS -->
+        {% if tab == 'technicians' %}
+        <div class="table-container">
+            <h3 style="padding: 1.5rem; border-bottom: 1px solid var(--border-color); color: var(--primary-color);">Service Agents (Technicians)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Place</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Affiliated Company</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for agent in agents %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td><strong>{{ agent.name }}</strong></td>
+                        <td>{{ agent.place }}</td>
+                        <td>{{ agent.phone }}</td>
+                        <td>{{ agent.email }}</td>
+                        <td>{{ agent.company_name }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: var(--text-muted);">No technicians registered yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        <!-- TAB: USERS -->
+        {% if tab == 'users' %}
+        <div class="table-container">
+            <h3 style="padding: 1.5rem; border-bottom: 1px solid var(--border-color); color: var(--primary-color);">Registered Users</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Photo</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td><strong>{{ user.name }}</strong></td>
+                        <td>
+                            {% if user.photo %}
+                                <img src="{{ url_for('static', filename='uploads/' + user.photo) }}" alt="User Photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-color);">
+                            {% else %}
+                                <span style="color: var(--text-muted); font-size: 0.85rem;">No Photo</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            House: {{ user.house }}<br>
+                            Place: {{ user.place }}<br>
+                            City: {{ user.city }}, {{ user.state }}<br>
+                            Pin: {{ user.pin }}
+                        </td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: var(--text-muted);">No users registered yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        <!-- TAB: PASSWORD -->
+        {% if tab == 'password' %}
+        <div class="card form-container">
+            <h3 class="card-title" style="text-align: center; font-size: 1.5rem; margin-bottom: 1.5rem;">CHANGE PASSWORD</h3>
+            <form action="{{ url_for('change_password_post') }}" method="POST">
+                <div class="form-group">
+                    <label class="form-label" for="old_password">Old Password</label>
+                    <input class="form-control" type="password" id="old_password" name="old_password" placeholder="Old Password" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="new_password">New Password</label>
+                    <input class="form-control" type="password" id="new_password" name="new_password" placeholder="New Password" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="confirm_password">Confirm Password</label>
+                    <input class="form-control" type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+                </div>
+                <button class="btn btn-primary btn-block" type="submit">Submit</button>
+            </form>
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
